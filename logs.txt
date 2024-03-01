@@ -1,0 +1,3 @@
+date: 2024-03-01 18:55:37.887313, action: start_schedule, user: Бот
+date: 2024-03-01 18:55:33.650397, action: start_schedule, user: Бот
+date: 2024-03-01 18:55:27.349962, action: start_schedule, user: Бот
