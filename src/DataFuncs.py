@@ -2,7 +2,11 @@ from User import User
 import os
 import pickle
 import datetime
+from Logger import Logger
+
+logger = Logger()
 def get_users() -> list:
+    logger.full_log(action='get_users')
     directory = './Data/Users'
     #print(os.listdir(directory))
     users = []
@@ -14,20 +18,24 @@ def get_users() -> list:
     
 
 def update_add_user(user: User):
+    logger.full_log('update_add_user')
     filename = f'./Data/Users/{user.chat_id}.pickle'
     with open(filename, 'wb') as f:
         pickle.dump(user, f)
     
 
 def senders_data_clear():
+    logger.full_log('senders_data_clear')
     with open('./Data/senders.txt', 'w') as f:
         f.write('')
 
 def add_sender(user: User):
+    logger.full_log('add_sender')
     with open('./Data/senders.txt', 'a') as f:
         f.write(f'{user.chat_id}\n')
 
 def get_senders()->list:
+    logger.full_log('get_senders')
     with open('./Data/senders.txt', 'r') as f:
         senders = f.read().splitlines()
         return senders

@@ -7,13 +7,13 @@ class User:
     #city - город проживания
     def __init__(self, name: str, 
                  chat_id: str, 
-                 silensed = False, 
+                 silenсed = False, 
                  time_zone = 4, 
                  city = "Новосибирск", 
                  birth_date: date = None) -> None:
         self.name = name
         self.chat_id = chat_id
-        self.silensed = silensed
+        self.silenсed = silenсed
         self.time_zone = time_zone
         self.shifted_time_zone = time_zone
         self.city = city
@@ -23,7 +23,7 @@ class User:
     def __str__(self) -> str:
         return str({'name': self.name, 
                     'chat_id': self.chat_id, 
-                    'silensed': self.silensed, 
+                    'silenсed': self.silenсed, 
                     'time_zone': self.time_zone, 
                     'shifted_time_zone': self.shifted_time_zone, 
                     'city': self.city
@@ -31,10 +31,12 @@ class User:
 
     #переопределение для вывода в виде объекта    
     def __repr__(self) -> str:
-        return f'User({self.name}, {self.chat_id}, {self.silensed}, {self.time_zone}, {self.shifted_time_zone}, {self.city})'
+        return f'User({self.name}, {self.chat_id}, {self.silenсed}, {self.time_zone}, {self.shifted_time_zone}, {self.city})'
     
     #переопределение равенства 
     def __eq__(self, other: object) -> bool:
+        if other is None:
+            return False
         return self.chat_id == other.chat_id
 
     #переопределение неравенства     

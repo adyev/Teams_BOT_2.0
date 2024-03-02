@@ -25,3 +25,8 @@ class Logger:
              logs.insert(0, f'date: {datetime.datetime.now()}, action: {action}, user: {user.name}\n')
              f.writelines(logs)
         pass
+
+    def clear_log_file(self):
+        with open (self.log_file, 'w', encoding="UTF-8") as f:
+            f.write('')
+        self.full_log('clear_log_file')
