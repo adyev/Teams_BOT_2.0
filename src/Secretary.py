@@ -39,14 +39,49 @@ class Secretary:
                                            callbackData="callback_workplace",
                                            callback_func=self.send_place_choice
                                            ),
+            'callback_office': Button(text='💼 Офис', 
+                                           callbackData="callback_office",
+                                           callback_func=self.send_chosen_place
+                                           ),
+            'callback_home': Button(text='🏡 Из дома', 
+                                           callbackData="callback_home",
+                                           callback_func=self.send_chosen_place
+                                           ),
+            'callback_remind_later': Button(text='🔔 Напомнить позже', 
+                                           callbackData="callback_remind_later",
+                                           callback_func=self.send_place_choice
+                                           ),
         }
+    def send_chosen_place(self):
+        print ('send_chosen_place')
+        pass
 
-    def send_place_choice(self, event: Event):
+    def remind_later(self, event: Event):
+        pass
+
+    def send_place_choice(self, event: Event = None):
+        
         user = self.get_user_by_id(event.from_chat)
         self.logger.full_log(action='send_place_choice', user=user)        
         self.logger.full_log(action='send_place_choice')
+        buttons = [[
+            self.buttons['callback_office'].form_dict(),
+            self.buttons['callback_home'].form_dict(),
+        ],
+        [
+            self.buttons['callback_remind_later'].form_dict()  
+        ]]
+        self.bot.send_text(text='Где сегодня работаешь?', 
+                  chat_id=user.chat_id, 
+                  inline_keyboard_markup='{}'.format(json.dumps(buttons)))
         pass
-    
+
+    def daily_question(self):
+        user
+        self.send_place_choice()
+        pass
+
+
     def button_reaction(self, bot: Bot, event: Event):
         self.logger.full_log(action='button_reaction')
         button = self.buttons[event.data['callbackData']]
@@ -121,7 +156,7 @@ class Secretary:
     def start_schedule(self):
         self.logger.full_log(action='start_schedule')
         #every().hour.at(":00").do(daily_question)
-        every().day.at("20:44").do(DataFuncs.senders_data_clear)
+        every().day.at("21:07").do(self.send_place_choice)
         #every().day.at("13:00").do(send_report)
         while (True):
             schedule.run_pending()

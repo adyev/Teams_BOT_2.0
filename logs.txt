@@ -1,3 +1,31 @@
+date: 2024-03-09 20:58:38.318886, action: update_add_user, user: Бот
+date: 2024-03-09 20:58:38.309885, action: Переключил silenced, user: Адыев Дмитрий Владимирович
+date: 2024-03-09 20:58:38.301883, action: silensed_switch, user: Бот
+date: 2024-03-09 20:58:38.293880, action: button_reaction, user: Бот
+date: 2024-03-09 20:58:36.199091, action: update_add_user, user: Бот
+date: 2024-03-09 20:58:36.190089, action: Переключил silenced, user: Адыев Дмитрий Владимирович
+date: 2024-03-09 20:58:36.180087, action: silensed_switch, user: Бот
+date: 2024-03-09 20:58:36.171085, action: button_reaction, user: Бот
+date: 2024-03-09 20:57:48.631469, action: send_place_choice, user: Бот
+date: 2024-03-09 20:57:48.624468, action: send_place_choice, user: Адыев Дмитрий Владимирович
+date: 2024-03-09 20:57:48.617399, action: button_reaction, user: Бот
+date: 2024-03-09 20:57:42.162732, action: start_schedule, user: Бот
+date: 2024-03-09 20:57:42.145728, action: get_senders, user: Бот
+date: 2024-03-09 20:57:42.136726, action: get_users, user: Бот
+date: 2024-03-09 20:57:22.180586, action: send_place_choice, user: Бот
+date: 2024-03-09 20:57:22.171584, action: send_place_choice, user: Адыев Дмитрий Владимирович
+date: 2024-03-09 20:57:22.162583, action: button_reaction, user: Бот
+date: 2024-03-09 20:57:20.036906, action: start_schedule, user: Бот
+date: 2024-03-09 20:57:20.018901, action: get_senders, user: Бот
+date: 2024-03-09 20:57:20.009899, action: get_users, user: Бот
+date: 2024-03-09 20:52:42.236260, action: send_place_choice, user: Бот
+date: 2024-03-09 20:52:42.229257, action: send_place_choice, user: Адыев Дмитрий Владимирович
+date: 2024-03-09 20:52:42.222255, action: button_reaction, user: Бот
+date: 2024-03-09 20:52:39.485739, action: Команда /menu, личный чат, user: Адыев Дмитрий Владимирович
+date: 2024-03-09 20:52:39.476737, action: message_reaction, user: Бот
+date: 2024-03-09 20:52:26.265831, action: start_schedule, user: Бот
+date: 2024-03-09 20:52:26.247827, action: get_senders, user: Бот
+date: 2024-03-09 20:52:26.237823, action: get_users, user: Бот
 date: 2024-03-09 20:03:34.982877, action: Команда /getMe, личный чат, user: Адыев Дмитрий Владимирович
 date: 2024-03-09 20:03:34.975877, action: message_reaction, user: Бот
 date: 2024-03-09 20:03:27.235256, action: start_schedule, user: Бот
