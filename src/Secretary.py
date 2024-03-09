@@ -24,7 +24,8 @@ class Secretary:
         self.bot = Bot(token=os.environ.get("TEAMS_BOT_TOKEN", "localhost:5432"))
         self.bot.dispatcher.add_handler(MessageHandler(callback=self.message_reaction))
         self.bot.dispatcher.add_handler(BotButtonCommandHandler(callback=self.button_reaction))
-        self.CHAT_ID = os.environ.get("TEAMS_CHAT_ID", "localhost:5432")
+        self.SAA_CHAT_ID = os.environ.get("TEAMS_SAA_CHAT_ID", "localhost:5432")
+        self.RPI_CHAT_ID = os.environ.get("TEAMS_RPI_CHAT_ID", "localhost:5432")
         self.logger = Logger()
         self.buttons = {
             'callback_on':  Button(text='✅ Включить', 
@@ -59,9 +60,10 @@ class Secretary:
     def remind_later(self, event: Event):
         pass
 
-    def send_place_choice(self, event: Event = None):
+    def send_place_choice(self, event: Event = None, user: User = None):
+        if (user == None):
+            user = self.get_user_by_id(event.from_chat)
         
-        user = self.get_user_by_id(event.from_chat)
         self.logger.full_log(action='send_place_choice', user=user)        
         self.logger.full_log(action='send_place_choice')
         buttons = [[
@@ -77,8 +79,8 @@ class Secretary:
         pass
 
     def daily_question(self):
-        user
-        self.send_place_choice()
+        
+        self.send_place_choice(user=self.get_user_by_id('adyevdv@sovcombank.ru'))
         pass
 
 
@@ -153,14 +155,6 @@ class Secretary:
                   inline_keyboard_markup='{}'.format(json.dumps(buttons)))
         pass
 
-    def start_schedule(self):
-        self.logger.full_log(action='start_schedule')
-        #every().hour.at(":00").do(daily_question)
-        every().day.at("21:07").do(self.send_place_choice)
-        #every().day.at("13:00").do(send_report)
-        while (True):
-            schedule.run_pending()
-            time.sleep(1)
         
     def silenсed_swich(self, event: Event):
         user = self.get_user_by_id(event.from_chat)
@@ -184,6 +178,16 @@ class Secretary:
                 return user
         return None
         
+
+    def start_schedule(self):
+        self.logger.full_log(action='start_schedule')
+        #every().hour.at(":00").do(daily_question)
+        #every().day.at("21:24").do(self.send_place_choice)
+        every().minute.do(self.daily_question)
+        #every().day.at("13:00").do(send_report)
+        while (True):
+            schedule.run_pending()
+            time.sleep(1)
 
     def start(self):
         thread = Thread(target=self.start_schedule)
