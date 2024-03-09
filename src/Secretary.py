@@ -48,11 +48,13 @@ class Secretary:
         pass
     
     def button_reaction(self, bot: Bot, event: Event):
+        self.logger.full_log(action='button_reaction')
         button = self.buttons[event.data['callbackData']]
         button.callback_func(event)
 
     def message_reaction(self, bot: Bot, event: Event):
-        commands = ['/start', '/menu', '/help', '/changeCity', '/setWorkTime', '/gimmeChatId']
+        self.logger.full_log(action='message_reaction')
+        commands = ['/start', '/menu', '/help', '/changeCity', '/setWorkTime', '/gimmeChatId', '/getMe']
         #print (event)
         
         user = self.get_user_by_id(chat_id=event.data['from']['userId'])
@@ -65,6 +67,8 @@ class Secretary:
                 self.logger.full_log(action= f'Команда {event.text}, личный чат', user=user)
                 if (event.text == '/menu'):
                     self.send_menu(user=user)
+                elif(event.text == '/getMe'):
+                    bot.send_text(text=f'{str(user)}', chat_id=event.from_chat)
                 elif(event.text == '/start'):
                     self.register(event=event)
                 elif(event.text == '/changeCity'):
@@ -108,7 +112,7 @@ class Secretary:
             buttons[0].append(self.buttons['callback_on'].form_dict())
         else:
             buttons[0].append(self.buttons['callback_off'].form_dict())
-        print (buttons)
+        #print (buttons)
         self.bot.send_text(text='Что хочешь сделать?', 
                   chat_id=user.chat_id, 
                   inline_keyboard_markup='{}'.format(json.dumps(buttons)))
@@ -124,10 +128,21 @@ class Secretary:
             time.sleep(1)
         
     def silenсed_swich(self, event: Event):
+        user = self.get_user_by_id(event.from_chat)
         self.logger.full_log(action='silensed_switch')
-        #user.silenсed = False if user.silenсed == True else True
-        #DataFuncs.update_add_user(user)
-
+        self.logger.full_log(action='Переключил silenced', user=user)
+        user.silenсed = False if user.silenсed == True else True
+        DataFuncs.update_add_user(user)
+        new_buttons = [[
+            self.buttons['callback_workplace'].form_dict()
+        ]]
+        if (user.silenсed):
+            self.bot.send_text(text='Рассылка успешно отключена', chat_id=user.chat_id)
+            new_buttons[0].append(self.buttons['callback_on'].form_dict())
+        else:
+            self.bot.send_text(text='Рассылка успешно включена', chat_id=user.chat_id)
+            new_buttons[0].append(self.buttons['callback_off'].form_dict())
+        self.bot.edit_text(inline_keyboard_markup=new_buttons, msg_id=event.data['message']['msgId'], chat_id=event.from_chat, text='Что хочешь сделать?')
     def get_user_by_id(self, chat_id):
         for user in self.users:
             if user.chat_id == chat_id:

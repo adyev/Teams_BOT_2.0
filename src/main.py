@@ -9,7 +9,7 @@ def main():
     s = Secretary()
     #s.logger.clear_log_file()
     #DataFuncs.set_users()
-    user: User = s.get_user_by_id(chat_id='adyevdv@sovcombank.ru')
+    #user: User = s.get_user_by_id(chat_id='adyevdv@sovcombank.ru')
     s.start()
     
     #s.create_test_users()    
