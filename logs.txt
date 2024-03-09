@@ -1,3 +1,16 @@
+date: 2024-03-09 15:50:10.062607, action: Команда /menu, личный чат, user: Адыев Дмитрий Владимирович
+date: 2024-03-09 15:50:04.767980, action: start_schedule, user: Бот
+date: 2024-03-09 15:50:04.751976, action: get_senders, user: Бот
+date: 2024-03-09 15:50:04.743977, action: get_users, user: Бот
+date: 2024-03-09 15:49:22.288593, action: Команда /menu, личный чат, user: Адыев Дмитрий Владимирович
+date: 2024-03-09 15:49:17.364633, action: start_schedule, user: Бот
+date: 2024-03-09 15:49:17.344628, action: get_senders, user: Бот
+date: 2024-03-09 15:49:17.335626, action: get_users, user: Бот
+date: 2024-03-09 15:47:39.967795, action: Команда /menu, личный чат, user: Адыев Дмитрий Владимирович
+date: 2024-03-09 15:47:25.047294, action: start_schedule, user: Бот
+date: 2024-03-09 15:47:25.031687, action: get_senders, user: Бот
+date: 2024-03-09 15:47:24.957913, action: get_users, user: Бот
+date: 2024-03-02 20:44:00.069928, action: senders_data_clear, user: Бот
 date: 2024-03-02 17:10:18.063859, action: Команда /menu, личный чат, user: Адыев Дмитрий Владимирович
 date: 2024-03-02 17:10:10.733893, action: Команда /menu, публичный чат, user: Адыев Дмитрий Владимирович
 date: 2024-03-02 17:09:10.090765, action: Команда /help, публичный чат, user: Адыев Дмитрий Владимирович

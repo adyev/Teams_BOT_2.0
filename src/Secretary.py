@@ -26,13 +26,22 @@ class Secretary:
         self.CHAT_ID = os.environ.get("TEAMS_CHAT_ID", "localhost:5432")
         self.logger = Logger()
         self.buttons = {
-            'callback_silenced_on': Button(text='Включить', 
-                                           callbackData="callback_silenced_on",
+            'callback_on':  Button(text='✅ Включить', 
+                                           callbackData="callback_on",
                                            callback_func=self.silenсed_swich
-                                           )
+                                           ), 
+            'callback_off': Button(text='🚫 Выключить', 
+                                           callbackData="callback_off",
+                                           callback_func=self.silenсed_swich
+                                           ),
+            'callback_workplace': Button(text='💻 Выбрать место работы', 
+                                           callbackData="callback_workplace",
+                                           callback_func=self.send_place_choice
+                                           ),
         }
 
-    
+    def send_place_choice(self):
+        pass
     
     def message_reaction(self, bot: Bot, event: Event):
         commands = ['/start', '/menu', '/help', '/changeCity', '/setWorkTime', '/gimmeChatId']
@@ -85,11 +94,20 @@ class Secretary:
         pass
 
     def send_menu(self, user: User):
+        self.bot.send_text(text='hi', chat_id=user.chat_id)
+        buttons = [[self.buttons['callback_workplace'].form_dict()]]
+        if (user.silenсed):
+            buttons[0].append(self.buttons['callback_on'].form_dict())
+        else:
+            buttons[0].append(self.buttons['callback_off'].form_dict())
+        print (buttons)
+        self.bot.send_text(text='Что хочешь сделать?', 
+                  chat_id=user.chat_id, 
+                  inline_keyboard_markup='{}'.format(json.dumps(buttons)))
         pass
 
     def start_schedule(self):
         self.logger.full_log(action='start_schedule')
-        #every().second.do(self.message_reaction)
         #every().hour.at(":00").do(daily_question)
         every().day.at("20:44").do(DataFuncs.senders_data_clear)
         #every().day.at("13:00").do(send_report)
