@@ -23,6 +23,7 @@ class Secretary:
         self.senders = DataFuncs.get_senders()
         self.bot = Bot(token=os.environ.get("TEAMS_BOT_TOKEN", "localhost:5432"))
         self.bot.dispatcher.add_handler(MessageHandler(callback=self.message_reaction))
+        self.bot.dispatcher.add_handler(BotButtonCommandHandler(callback=self.button_reaction))
         self.CHAT_ID = os.environ.get("TEAMS_CHAT_ID", "localhost:5432")
         self.logger = Logger()
         self.buttons = {
@@ -40,9 +41,16 @@ class Secretary:
                                            ),
         }
 
-    def send_place_choice(self):
+    def send_place_choice(self, event: Event):
+        user = self.get_user_by_id(event.from_chat)
+        self.logger.full_log(action='send_place_choice', user=user)        
+        self.logger.full_log(action='send_place_choice')
         pass
     
+    def button_reaction(self, bot: Bot, event: Event):
+        button = self.buttons[event.data['callbackData']]
+        button.callback_func(event)
+
     def message_reaction(self, bot: Bot, event: Event):
         commands = ['/start', '/menu', '/help', '/changeCity', '/setWorkTime', '/gimmeChatId']
         #print (event)
@@ -115,10 +123,10 @@ class Secretary:
             schedule.run_pending()
             time.sleep(1)
         
-    def silenсed_swich(self, user: User):
+    def silenсed_swich(self, event: Event):
         self.logger.full_log(action='silensed_switch')
-        user.silenсed = False if user.silenсed == True else True
-        DataFuncs.update_add_user(user)
+        #user.silenсed = False if user.silenсed == True else True
+        #DataFuncs.update_add_user(user)
 
     def get_user_by_id(self, chat_id):
         for user in self.users:

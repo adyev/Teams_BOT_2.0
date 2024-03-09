@@ -1,3 +1,20 @@
+date: 2024-03-09 16:28:11.092821, action: silensed_switch, user: Бот
+date: 2024-03-09 16:28:07.380158, action: send_place_choice, user: Бот
+date: 2024-03-09 16:28:07.371153, action: send_place_choice, user: Адыев Дмитрий Владимирович
+date: 2024-03-09 16:28:04.446045, action: start_schedule, user: Бот
+date: 2024-03-09 16:28:04.430042, action: get_senders, user: Бот
+date: 2024-03-09 16:28:04.421040, action: get_users, user: Бот
+date: 2024-03-09 16:27:16.768451, action: Команда /menu, личный чат, user: Адыев Дмитрий Владимирович
+date: 2024-03-09 16:27:14.675338, action: start_schedule, user: Бот
+date: 2024-03-09 16:27:14.659334, action: get_senders, user: Бот
+date: 2024-03-09 16:27:14.650332, action: get_users, user: Бот
+date: 2024-03-09 16:15:48.609859, action: silensed_switch, user: Бот
+date: 2024-03-09 16:15:45.411875, action: start_schedule, user: Бот
+date: 2024-03-09 16:15:45.395872, action: get_senders, user: Бот
+date: 2024-03-09 16:15:45.386870, action: get_users, user: Бот
+date: 2024-03-09 16:13:43.033932, action: start_schedule, user: Бот
+date: 2024-03-09 16:13:43.016928, action: get_senders, user: Бот
+date: 2024-03-09 16:13:43.009926, action: get_users, user: Бот
 date: 2024-03-09 15:50:10.062607, action: Команда /menu, личный чат, user: Адыев Дмитрий Владимирович
 date: 2024-03-09 15:50:04.767980, action: start_schedule, user: Бот
 date: 2024-03-09 15:50:04.751976, action: get_senders, user: Бот
