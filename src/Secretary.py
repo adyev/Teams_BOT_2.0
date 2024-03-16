@@ -14,6 +14,7 @@ import json
 import schedule
 import DataFuncs
 import config
+import datetime
 
 
 
@@ -48,9 +49,9 @@ class Secretary:
                                            callbackData="callback_home",
                                            callback_func=self.send_chosen_place
                                            ),
-            'callback_remind_later': Button(text='🔔 Напомнить позже', 
+            'callback_remind_later': Button(text='🔔 Напомнить через час', 
                                            callbackData="callback_remind_later",
-                                           callback_func=self.send_place_choice
+                                           callback_func=self.remind_later
                                            ),
         }
     def send_chosen_place(self):
@@ -58,10 +59,14 @@ class Secretary:
         pass
 
     def remind_later(self, event: Event):
+        user = self.get_user_by_id(event.from_chat)
+        self.logger.full_log(action='Напомнить через час', user=user)
+        user.shifted_time_zone -= 1
+        self.bot.send_text(text='Повторю свой вопрос через час', chat_id=user.chat_id)
         pass
 
     def send_place_choice(self, event: Event = None, user: User = None):
-        if (user == None):
+        if (user is None):
             user = self.get_user_by_id(event.from_chat)
         
         self.logger.full_log(action='send_place_choice', user=user)        
@@ -79,9 +84,11 @@ class Secretary:
         pass
 
     def daily_question(self):
-        
-        self.send_place_choice(user=self.get_user_by_id('adyevdv@sovcombank.ru'))
-        pass
+        current_hour = datetime.datetime.now().hour
+        for user in self.users:
+            if (9 - user.shifted_time_zone == current_hour - 4):
+                self.send_place_choice(user=self.get_user_by_id(user.chat_id))
+                self.logger.full_log(action=f'Daily_question sended to {user.name}')
 
 
     def button_reaction(self, bot: Bot, event: Event):
@@ -143,7 +150,6 @@ class Secretary:
         pass
 
     def send_menu(self, user: User):
-        self.bot.send_text(text='hi', chat_id=user.chat_id)
         buttons = [[self.buttons['callback_workplace'].form_dict()]]
         if (user.silenсed):
             buttons[0].append(self.buttons['callback_on'].form_dict())
@@ -155,7 +161,14 @@ class Secretary:
                   inline_keyboard_markup='{}'.format(json.dumps(buttons)))
         pass
 
-        
+    def daily_reset(self):
+        for user in self.users:
+            user.shifted_time_zone = user.time_zone
+            DataFuncs.update_add_user(user=user)
+            DataFuncs.senders_data_clear()
+            self.logger.full_log(action='Reset')
+        pass
+
     def silenсed_swich(self, event: Event):
         user = self.get_user_by_id(event.from_chat)
         self.logger.full_log(action='silensed_switch')
@@ -181,8 +194,8 @@ class Secretary:
 
     def start_schedule(self):
         self.logger.full_log(action='start_schedule')
-        #every().hour.at(":00").do(daily_question)
-        #every().day.at("21:24").do(self.send_place_choice)
+        every().hour.at(":00").do(self.daily_question)
+        every().day.at("00:00").do(self.daily_reset)
         every().minute.do(self.daily_question)
         #every().day.at("13:00").do(send_report)
         while (True):
