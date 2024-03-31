@@ -34,11 +34,11 @@ def add_sender(user: User):
     with open('./Data/senders.txt', 'a') as f:
         f.write(f'{user.chat_id}\n')
 
-def get_senders()->list:
+def get_senders()->set:
     logger.full_log('get_senders')
     with open('./Data/senders.txt', 'r') as f:
         senders = f.read().splitlines()
-        return senders
+        return set(senders)
     
 def set_users():
     with open ('Data/Users/adyevdv@sovcombank.ru.pickle', 'wb') as f:
@@ -69,6 +69,8 @@ def set_users():
         pickle.dump(User(chat_id='kitovdv@sovcombank.ru', name='Китов Дмитрий Викторович', birth_date=datetime.date(1994, 11, 25), time_zone=7, city='Хабаровск'), f)
     with open ('Data/Users/mizinovvv@sovcombank.ru.pickle', 'wb') as f:
         pickle.dump(User(chat_id='mizinovvv@sovcombank.ru', name='Мизинов Владимир Владимирович', birth_date=datetime.date(1988, 12, 14), time_zone=1, city='Саратов'), f)
+    with open ('Data/Users/shilovaev@sovcombank.ru.pickle', 'wb') as f:
+        pickle.dump(User(chat_id='shilovaev@sovcombank.ru', name='Шилова Елена Викторовна', birth_date=datetime.date(1986, 5, 22), groop='SaA'), f)
     
 
     

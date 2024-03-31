@@ -1,3 +1,39 @@
+date: 2024-03-16 18:22:22.039882, action: start_schedule, user: Бот
+date: 2024-03-16 18:22:22.012876, action: get_senders, user: Бот
+date: 2024-03-16 18:22:22.004874, action: get_users, user: Бот
+date: 2024-03-16 18:04:06.989612, action: button_reaction, user: Бот
+date: 2024-03-16 18:04:00.437091, action: button_reaction, user: Бот
+date: 2024-03-16 18:03:53.838639, action: start_schedule, user: Бот
+date: 2024-03-16 18:03:53.820520, action: get_senders, user: Бот
+date: 2024-03-16 18:03:53.811518, action: get_users, user: Бот
+date: 2024-03-16 18:02:48.283055, action: button_reaction, user: Бот
+date: 2024-03-16 18:02:42.957366, action: start_schedule, user: Бот
+date: 2024-03-16 18:02:42.939362, action: get_senders, user: Бот
+date: 2024-03-16 18:02:42.930360, action: get_users, user: Бот
+date: 2024-03-16 18:01:55.115050, action: button_reaction, user: Бот
+date: 2024-03-16 18:01:46.362076, action: start_schedule, user: Бот
+date: 2024-03-16 18:01:46.345073, action: get_senders, user: Бот
+date: 2024-03-16 18:01:46.336069, action: get_users, user: Бот
+date: 2024-03-16 17:55:36.892090, action: button_reaction, user: Бот
+date: 2024-03-16 17:55:28.394668, action: start_schedule, user: Бот
+date: 2024-03-16 17:55:28.375661, action: get_senders, user: Бот
+date: 2024-03-16 17:55:28.303995, action: get_users, user: Бот
+date: 2024-03-16 17:38:15.747412, action: button_reaction, user: Бот
+date: 2024-03-16 17:37:57.754642, action: start_schedule, user: Бот
+date: 2024-03-16 17:37:57.738129, action: get_senders, user: Бот
+date: 2024-03-16 17:37:57.729127, action: get_users, user: Бот
+date: 2024-03-16 17:34:27.986355, action: button_reaction, user: Бот
+date: 2024-03-16 17:33:18.864808, action: button_reaction, user: Бот
+date: 2024-03-16 17:33:08.636095, action: Напомнить через час, user: Адыев Дмитрий Владимирович
+date: 2024-03-16 17:33:08.628095, action: button_reaction, user: Бот
+date: 2024-03-16 17:33:03.651617, action: start_schedule, user: Бот
+date: 2024-03-16 17:33:03.629611, action: get_senders, user: Бот
+date: 2024-03-16 17:33:03.621198, action: get_users, user: Бот
+date: 2024-03-16 17:28:02.895552, action: Команда /gimmeChatId, личный чат, user: Адыев Дмитрий Владимирович
+date: 2024-03-16 17:28:02.888551, action: message_reaction, user: Бот
+date: 2024-03-16 17:27:25.265469, action: start_schedule, user: Бот
+date: 2024-03-16 17:27:25.245464, action: get_senders, user: Бот
+date: 2024-03-16 17:27:25.237457, action: get_users, user: Бот
 date: 2024-03-16 17:12:09.609604, action: Команда /getMe, личный чат, user: Адыев Дмитрий Владимирович
 date: 2024-03-16 17:12:09.600602, action: message_reaction, user: Бот
 date: 2024-03-16 17:11:58.116553, action: Напомнить через час, user: Адыев Дмитрий Владимирович

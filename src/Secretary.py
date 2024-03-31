@@ -15,6 +15,7 @@ import schedule
 import DataFuncs
 import config
 import datetime
+import RegFuncs
 
 
 
@@ -54,8 +55,16 @@ class Secretary:
                                            callback_func=self.remind_later
                                            ),
         }
-    def send_chosen_place(self):
-        print ('send_chosen_place')
+    def send_chosen_place(self, event: Event):
+        #print (event.data['message']['parts'][0][])
+        user = self.get_user_by_id(event.from_chat)
+        self.senders.add(user.chat_id)
+        place = self.buttons[event.data['callbackData']].text
+        text = f'#{user.name}\n{datetime.datetime.now().strftime("%d.%m.%Y")} {place} #работа'
+        if (user.groop == 'SaA'):
+            self.bot.send_text(text=text, chat_id=self.SAA_CHAT_ID)
+        else:
+            self.bot.send_text(text=text, chat_id=self.RPI_CHAT_ID)
         pass
 
     def remind_later(self, event: Event):
@@ -63,6 +72,7 @@ class Secretary:
         self.logger.full_log(action='Напомнить через час', user=user)
         user.shifted_time_zone -= 1
         self.bot.send_text(text='Повторю свой вопрос через час', chat_id=user.chat_id)
+        print(self.senders)
         pass
 
     def send_place_choice(self, event: Event = None, user: User = None):
@@ -114,11 +124,11 @@ class Secretary:
                 elif(event.text == '/getMe'):
                     bot.send_text(text=f'{str(user)}', chat_id=event.from_chat)
                 elif(event.text == '/start'):
-                    self.register(event=event)
+                    RegFuncs.register(bot=self.bot, event=event)
                 elif(event.text == '/changeCity'):
-                    self.changeCity(user=user)
+                    RegFuncs.changeCity(bot=self.bot, user=user)
                 elif(event.text == '/setWorkTime'):
-                    self.setWorkTime(user=user)
+                    RegFuncs.setWorkTime(bot=self.bot, user=user)
                 elif(event.text == '/help'):
                     bot.send_text(text='Список доступных команд:\n'\
                                   '/menu - вызвать основное меню. '\
@@ -140,14 +150,7 @@ class Secretary:
                 bot.send_text(text='<b>Взаимодействие с ботом вне приватного чата запрещено!</b>', chat_id=event.from_chat, parse_mode='HTML')
 
 
-    def setWorkTime(self, user: User):
-        pass
 
-    def changeCity(self, user: User):
-        pass
-
-    def register(self, event: Event):
-        pass
 
     def send_menu(self, user: User):
         buttons = [[self.buttons['callback_workplace'].form_dict()]]
@@ -191,13 +194,19 @@ class Secretary:
                 return user
         return None
         
+    def send_report(self):
+        SAA_senders = []
+        RPI_senders = []
+        for user in self.users:
+            pass
+        pass
 
     def start_schedule(self):
         self.logger.full_log(action='start_schedule')
         every().hour.at(":00").do(self.daily_question)
         every().day.at("00:00").do(self.daily_reset)
-        every().minute.do(self.daily_question)
-        #every().day.at("13:00").do(send_report)
+        #every().minute.do(self.daily_question)
+        every().day.at("13:00").do(self.send_report)
         while (True):
             schedule.run_pending()
             time.sleep(1)
