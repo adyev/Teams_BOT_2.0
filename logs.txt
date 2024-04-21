@@ -1,3 +1,158 @@
+date: 2024-04-21 19:42:51.112363, action: choose_place, user: Адыев Дмитрий Владимирович
+date: 2024-04-21 19:42:47.186702, action: button_reaction, user: Бот
+date: 2024-04-21 19:42:46.700393, action: start_schedule, user: Бот
+date: 2024-04-21 19:42:46.627351, action: get_senders, user: Бот
+date: 2024-04-21 19:42:46.480162, action: get_senders, user: Бот
+date: 2024-04-21 19:41:42.105106, action: button_reaction, user: Бот
+date: 2024-04-21 19:41:01.906865, action: button_reaction, user: Бот
+date: 2024-04-21 19:40:39.646153, action: button_reaction, user: Бот
+date: 2024-04-21 19:40:37.161339, action: start_schedule, user: Бот
+date: 2024-04-21 19:40:37.092022, action: get_senders, user: Бот
+date: 2024-04-21 19:40:36.947017, action: get_senders, user: Бот
+date: 2024-04-21 19:39:02.764160, action: button_reaction, user: Бот
+date: 2024-04-21 19:38:58.960997, action: start_schedule, user: Бот
+date: 2024-04-21 19:38:58.862935, action: get_senders, user: Бот
+date: 2024-04-21 19:38:58.717053, action: get_senders, user: Бот
+date: 2024-04-21 19:38:25.944623, action: button_reaction, user: Бот
+date: 2024-04-21 19:38:02.565545, action: button_reaction, user: Бот
+date: 2024-04-21 19:37:59.794825, action: start_schedule, user: Бот
+date: 2024-04-21 19:37:59.680739, action: get_senders, user: Бот
+date: 2024-04-21 19:37:59.521676, action: get_senders, user: Бот
+date: 2024-04-21 19:36:05.411959, action: button_reaction, user: Бот
+date: 2024-04-21 19:35:59.026108, action: button_reaction, user: Бот
+date: 2024-04-21 19:35:56.212017, action: send_place_choice, user: Бот
+date: 2024-04-21 19:35:56.203018, action: send_place_choice, user: Адыев Дмитрий Владимирович
+date: 2024-04-21 19:35:56.195746, action: button_reaction, user: Бот
+date: 2024-04-21 19:35:49.274800, action: Команда /menu, личный чат, user: Адыев Дмитрий Владимирович
+date: 2024-04-21 19:35:49.265800, action: message_reaction, user: Бот
+date: 2024-04-21 19:35:39.040655, action: start_schedule, user: Бот
+date: 2024-04-21 19:35:38.972776, action: get_senders, user: Бот
+date: 2024-04-21 19:35:38.821888, action: get_senders, user: Бот
+date: 2024-04-21 19:35:31.305027, action: Команда /inform, личный чат, user: Адыев Дмитрий Владимирович
+date: 2024-04-21 19:35:31.297030, action: message_reaction, user: Бот
+date: 2024-04-21 19:35:30.854436, action: start_schedule, user: Бот
+date: 2024-04-21 19:35:30.786820, action: get_senders, user: Бот
+date: 2024-04-21 19:35:30.647714, action: get_senders, user: Бот
+date: 2024-04-21 19:35:06.760694, action: Команда /inform, личный чат, user: Адыев Дмитрий Владимирович
+date: 2024-04-21 19:35:06.748692, action: message_reaction, user: Бот
+date: 2024-04-21 19:35:06.243868, action: start_schedule, user: Бот
+date: 2024-04-21 19:35:06.137818, action: get_senders, user: Бот
+date: 2024-04-21 19:35:05.907088, action: get_senders, user: Бот
+date: 2024-04-21 19:31:58.984844, action: Команда /inform, личный чат, user: Адыев Дмитрий Владимирович
+date: 2024-04-21 19:31:58.977493, action: message_reaction, user: Бот
+date: 2024-04-21 19:31:58.493453, action: start_schedule, user: Бот
+date: 2024-04-21 19:31:58.417454, action: get_senders, user: Бот
+date: 2024-04-21 19:31:58.214835, action: get_senders, user: Бот
+date: 2024-04-21 19:23:36.497552, action: Команда /inform, личный чат, user: Адыев Дмитрий Владимирович
+date: 2024-04-21 19:23:36.488558, action: message_reaction, user: Бот
+date: 2024-04-21 19:23:30.335491, action: Команда /inform, личный чат, user: Адыев Дмитрий Владимирович
+date: 2024-04-21 19:23:30.327721, action: message_reaction, user: Бот
+date: 2024-04-21 19:22:51.546311, action: Команда /inform, личный чат, user: Адыев Дмитрий Владимирович
+date: 2024-04-21 19:22:51.537313, action: message_reaction, user: Бот
+date: 2024-04-21 19:22:51.052203, action: start_schedule, user: Бот
+date: 2024-04-21 19:22:50.989109, action: get_senders, user: Бот
+date: 2024-04-21 19:22:50.896005, action: get_senders, user: Бот
+date: 2024-04-21 19:21:20.668785, action: Команда /inform, личный чат, user: Адыев Дмитрий Владимирович
+date: 2024-04-21 19:21:20.659784, action: message_reaction, user: Бот
+date: 2024-04-21 19:21:20.144604, action: start_schedule, user: Бот
+date: 2024-04-21 19:21:20.050521, action: get_senders, user: Бот
+date: 2024-04-21 19:21:19.929779, action: get_senders, user: Бот
+date: 2024-04-21 19:13:33.953313, action: Команда /inform, личный чат, user: Адыев Дмитрий Владимирович
+date: 2024-04-21 19:13:33.944300, action: message_reaction, user: Бот
+date: 2024-04-21 19:13:30.797444, action: start_schedule, user: Бот
+date: 2024-04-21 19:13:30.723389, action: get_senders, user: Бот
+date: 2024-04-21 19:13:30.622005, action: get_senders, user: Бот
+date: 2024-04-21 19:11:56.415582, action: Команда /gimmeChatId, публичный чат, user: Адыев Дмитрий Владимирович
+date: 2024-04-21 19:11:56.407579, action: message_reaction, user: Бот
+date: 2024-04-21 19:11:37.325973, action: Команда /inform, личный чат, user: Адыев Дмитрий Владимирович
+date: 2024-04-21 19:11:37.317971, action: message_reaction, user: Бот
+date: 2024-04-21 19:11:33.133350, action: start_schedule, user: Бот
+date: 2024-04-21 19:11:33.078353, action: get_senders, user: Бот
+date: 2024-04-21 19:11:32.967842, action: get_senders, user: Бот
+date: 2024-04-21 19:10:47.269853, action: Команда /inform, личный чат, user: Адыев Дмитрий Владимирович
+date: 2024-04-21 19:10:47.258326, action: message_reaction, user: Бот
+date: 2024-04-21 19:10:10.658381, action: start_schedule, user: Бот
+date: 2024-04-21 19:10:10.600903, action: get_senders, user: Бот
+date: 2024-04-21 19:10:10.496579, action: get_senders, user: Бот
+date: 2024-04-21 19:05:55.572721, action: start_schedule, user: Бот
+date: 2024-04-21 19:05:55.517729, action: get_senders, user: Бот
+date: 2024-04-21 19:05:55.408784, action: get_senders, user: Бот
+date: 2024-04-21 17:00:19.197970, action: start_schedule, user: Бот
+date: 2024-04-21 17:00:19.131972, action: get_senders, user: Бот
+date: 2024-04-21 17:00:19.031968, action: get_senders, user: Бот
+date: 2024-04-21 16:59:31.780343, action: start_schedule, user: Бот
+date: 2024-04-21 16:59:31.715764, action: get_senders, user: Бот
+date: 2024-04-21 16:59:31.616244, action: get_senders, user: Бот
+date: 2024-04-21 16:58:05.095259, action: start_schedule, user: Бот
+date: 2024-04-21 16:58:05.029284, action: get_senders, user: Бот
+date: 2024-04-21 16:58:04.932838, action: get_senders, user: Бот
+date: 2024-04-21 16:56:57.346159, action: start_schedule, user: Бот
+date: 2024-04-21 16:56:57.326160, action: !!!EXEPTION: ОШИБКА:  мусорное содержимое после числовой константы (примерное положение: "1a")
+LINE 1: ...T u."TEAMS_ID"FROM secretary."TS_USERS" u where 1=1and u."GR...
+                                                             ^
+, user: Бот
+date: 2024-04-21 16:56:57.273118, action: get_senders, user: Бот
+date: 2024-04-21 16:56:57.219593, action: !!!EXEPTION: ОШИБКА:  мусорное содержимое после числовой константы (примерное положение: "1a")
+LINE 1: ...T u."TEAMS_ID"FROM secretary."TS_USERS" u where 1=1and u."GR...
+                                                             ^
+, user: Бот
+date: 2024-04-21 16:56:57.164050, action: get_senders, user: Бот
+date: 2024-04-21 16:14:33.152942, action: start_schedule, user: Бот
+date: 2024-04-21 16:14:33.000946, action: get_senders, user: Бот
+date: 2024-04-21 16:12:44.361280, action: start_schedule, user: Бот
+date: 2024-04-21 16:12:44.114601, action: get_senders, user: Бот
+date: 2024-04-21 16:11:38.213587, action: get_senders, user: Бот
+date: 2024-04-21 16:11:11.641610, action: start_schedule, user: Бот
+date: 2024-04-21 16:11:11.490817, action: get_senders, user: Бот
+date: 2024-04-21 16:10:49.214873, action: start_schedule, user: Бот
+date: 2024-04-21 16:10:49.063873, action: get_senders, user: Бот
+date: 2024-04-21 16:10:19.641042, action: start_schedule, user: Бот
+date: 2024-04-21 16:10:19.490040, action: get_senders, user: Бот
+date: 2024-04-21 16:10:05.420843, action: get_senders, user: Бот
+date: 2024-04-21 16:08:33.001757, action: start_schedule, user: Бот
+date: 2024-04-21 16:08:32.851753, action: get_senders, user: Бот
+date: 2024-04-21 16:08:17.389217, action: start_schedule, user: Бот
+date: 2024-04-21 16:08:17.212217, action: get_senders, user: Бот
+date: 2024-04-21 15:59:45.235995, action: Команда /getMe, личный чат, user: Адыев Дмитрий Владимирович
+date: 2024-04-21 15:59:45.224996, action: message_reaction, user: Бот
+date: 2024-04-21 15:59:12.804073, action: button_reaction, user: Бот
+date: 2024-04-21 15:59:07.865754, action: button_reaction, user: Бот
+date: 2024-04-21 15:59:04.960295, action: button_reaction, user: Бот
+date: 2024-04-21 15:57:03.029598, action: button_reaction, user: Бот
+date: 2024-04-21 15:56:45.330085, action: button_reaction, user: Бот
+date: 2024-04-21 15:55:23.120069, action: button_reaction, user: Бот
+date: 2024-04-21 15:55:22.586067, action: start_schedule, user: Бот
+date: 2024-04-21 15:55:22.478064, action: get_senders, user: Бот
+date: 2024-04-21 15:49:16.852554, action: button_reaction, user: Бот
+date: 2024-04-21 15:48:43.118557, action: button_reaction, user: Бот
+date: 2024-04-21 15:48:37.887984, action: button_reaction, user: Бот
+date: 2024-04-21 15:48:37.480790, action: start_schedule, user: Бот
+date: 2024-04-21 15:48:37.374747, action: get_senders, user: Бот
+date: 2024-04-21 15:48:26.217720, action: button_reaction, user: Бот
+date: 2024-04-21 15:48:25.664647, action: start_schedule, user: Бот
+date: 2024-04-21 15:48:25.555646, action: get_senders, user: Бот
+date: 2024-04-21 15:35:54.571256, action: button_reaction, user: Бот
+date: 2024-04-21 15:35:47.683894, action: start_schedule, user: Бот
+date: 2024-04-21 15:35:47.574888, action: get_senders, user: Бот
+date: 2024-04-21 15:35:47.565891, action: get_users, user: Бот
+date: 2024-04-21 15:34:30.241784, action: Команда /gimmeChatId, публичный чат, user: Адыев Дмитрий Владимирович
+date: 2024-04-21 15:34:30.232786, action: message_reaction, user: Бот
+date: 2024-04-21 15:34:21.389931, action: Команда /gimmeChatId, личный чат, user: Адыев Дмитрий Владимирович
+date: 2024-04-21 15:34:21.380927, action: message_reaction, user: Бот
+date: 2024-04-21 15:34:10.740765, action: button_reaction, user: Бот
+date: 2024-04-21 15:34:08.635224, action: start_schedule, user: Бот
+date: 2024-04-21 15:34:08.527222, action: get_senders, user: Бот
+date: 2024-04-21 15:34:08.518222, action: get_users, user: Бот
+date: 2024-04-21 15:30:14.143472, action: button_reaction, user: Бот
+date: 2024-04-21 15:30:03.853066, action: button_reaction, user: Бот
+date: 2024-04-21 15:29:58.636809, action: send_place_choice, user: Бот
+date: 2024-04-21 15:29:58.628808, action: send_place_choice, user: Адыев Дмитрий Владимирович
+date: 2024-04-21 15:29:58.620807, action: button_reaction, user: Бот
+date: 2024-04-21 15:29:53.638398, action: Команда /menu, личный чат, user: Адыев Дмитрий Владимирович
+date: 2024-04-21 15:29:53.628398, action: message_reaction, user: Бот
+date: 2024-04-21 15:29:36.315413, action: start_schedule, user: Бот
+date: 2024-04-21 15:29:36.204412, action: get_senders, user: Бот
+date: 2024-04-21 15:29:36.130415, action: get_users, user: Бот
 date: 2024-03-16 18:22:22.039882, action: start_schedule, user: Бот
 date: 2024-03-16 18:22:22.012876, action: get_senders, user: Бот
 date: 2024-03-16 18:22:22.004874, action: get_users, user: Бот

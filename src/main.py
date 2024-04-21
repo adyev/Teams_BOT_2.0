@@ -2,6 +2,7 @@ from Secretary import Secretary
 from User import User
 import datetime
 import DataFuncs
+from Group import Group
 
 import config as config
 
@@ -11,6 +12,8 @@ def main():
     #DataFuncs.set_users()
     #user: User = s.get_user_by_id(chat_id='adyevdv@sovcombank.ru')
     s.start()
+    
+    
     
     #s.create_test_users()    
 

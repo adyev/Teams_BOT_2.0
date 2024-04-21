@@ -16,19 +16,25 @@ import DataFuncs
 import config
 import datetime
 import RegFuncs
+from Group import Group
 
 
 
 class Secretary:
     def __init__(self) -> None:
-        self.users: list[User] = DataFuncs.get_users()
-        self.senders = DataFuncs.get_senders()
+        self.logger = Logger()
+        
         self.bot = Bot(token=os.environ.get("TEAMS_BOT_TOKEN", "localhost:5432"))
         self.bot.dispatcher.add_handler(MessageHandler(callback=self.message_reaction))
         self.bot.dispatcher.add_handler(BotButtonCommandHandler(callback=self.button_reaction))
-        self.SAA_CHAT_ID = os.environ.get("TEAMS_SAA_CHAT_ID", "localhost:5432")
-        self.RPI_CHAT_ID = os.environ.get("TEAMS_RPI_CHAT_ID", "localhost:5432")
-        self.logger = Logger()
+        
+        
+        self.groups = {
+            'SAA': DataFuncs.get_group('SAA'), 
+            'RPI': DataFuncs.get_group('RPI')
+        }
+
+
         self.buttons = {
             'callback_on':  Button(text='✅ Включить', 
                                            callbackData="callback_on",
@@ -55,24 +61,26 @@ class Secretary:
                                            callback_func=self.remind_later
                                            ),
         }
+
+
+
     def send_chosen_place(self, event: Event):
         #print (event.data['message']['parts'][0][])
         user = self.get_user_by_id(event.from_chat)
-        self.senders.add(user.chat_id)
+        self.logger.full_log(action='chouse_place', user=user)
+        self.groups[user.group].senders.add(user.chat_id)
+        DataFuncs.add_sender(user=user)
         place = self.buttons[event.data['callbackData']].text
         text = f'#{user.name}\n{datetime.datetime.now().strftime("%d.%m.%Y")} {place} #работа'
-        if (user.groop == 'SaA'):
-            self.bot.send_text(text=text, chat_id=self.SAA_CHAT_ID)
-        else:
-            self.bot.send_text(text=text, chat_id=self.RPI_CHAT_ID)
-        pass
+        self.bot.send_text(text=text, chat_id=self.groups[user.group].chat_id)
+        
 
     def remind_later(self, event: Event):
         user = self.get_user_by_id(event.from_chat)
         self.logger.full_log(action='Напомнить через час', user=user)
         user.shifted_time_zone -= 1
-        self.bot.send_text(text='Повторю свой вопрос через час', chat_id=user.chat_id)
-        print(self.senders)
+        self.bot.send_text(text='Спрошу о месте работы на час позже', chat_id=user.chat_id)
+  
         pass
 
     def send_place_choice(self, event: Event = None, user: User = None):
@@ -95,10 +103,14 @@ class Secretary:
 
     def daily_question(self):
         current_hour = datetime.datetime.now().hour
-        for user in self.users:
-            if (9 - user.shifted_time_zone == current_hour - 4):
-                self.send_place_choice(user=self.get_user_by_id(user.chat_id))
-                self.logger.full_log(action=f'Daily_question sended to {user.name}')
+        week_day = datetime.datetime.now().weekday()
+        if (week_day < 5):
+            for group in self.groups:
+                for user in self.groups[group].users:
+                    if (not user.silenсed):
+                        if (9 - user.shifted_time_zone == current_hour - 7):
+                            self.send_place_choice(user=self.get_user_by_id(user.chat_id))
+                            self.logger.full_log(action=f'Daily_question sended to {user.name}')
 
 
     def button_reaction(self, bot: Bot, event: Event):
@@ -108,7 +120,7 @@ class Secretary:
 
     def message_reaction(self, bot: Bot, event: Event):
         self.logger.full_log(action='message_reaction')
-        commands = ['/start', '/menu', '/help', '/changeCity', '/setWorkTime', '/gimmeChatId', '/getMe']
+        commands = ['/start', '/menu', '/help', '/changeCity', '/setWorkTime', '/gimmeChatId', '/getMe', '/inform']
         #print (event)
         
         user = self.get_user_by_id(chat_id=event.data['from']['userId'])
@@ -123,6 +135,8 @@ class Secretary:
                     self.send_menu(user=user)
                 elif(event.text == '/getMe'):
                     bot.send_text(text=f'{str(user)}', chat_id=event.from_chat)
+                elif(event.text == '/inform'):
+                    self.send_info_message()
                 elif(event.text == '/start'):
                     RegFuncs.register(bot=self.bot, event=event)
                 elif(event.text == '/changeCity'):
@@ -151,6 +165,21 @@ class Secretary:
 
 
 
+    def send_info_message(self):
+        for group in self.groups:
+            birthday_man = self.groups[group].get_user(self.groups[group].b_day_man_id)
+            self.bot.send_text(chat_id=self.groups[group].chat_id, text=f'Всем привет! Это сообщение знаменует собой запуск '
+                                                                        f'новой версии бота!\n Основной функционал остался неизменным,'
+                                                                        f'большая часть изменений каснулась внутренней работы бота, однако были '
+                                                                        f'и добавлены новые функции, а именно:\n'
+                                                                        f'1. Оповещения ответственного ({birthday_man.name})'
+                                                                        f'за дни рождения за 7 дней до непосредственного события. '
+                                                                        f'\n2. Возможность перенести ежедневный вопрос на 1 час вперед '
+                                                                        f'(соответствующая кнопка при выборе места работы). '
+                                                                        f'Переносить можно сколько угодно раз, но на следующий'
+                                                                        f' день время вернется к стандартному.\n'
+                                                                        f'Бот пока в стадии бетатеста, потому ошибки неизбежны, '
+                                                                        f'поэтому, если встретитесь с какой-либо ошибкой, прошу сообщить!')
 
     def send_menu(self, user: User):
         buttons = [[self.buttons['callback_workplace'].form_dict()]]
@@ -165,9 +194,9 @@ class Secretary:
         pass
 
     def daily_reset(self):
-        for user in self.users:
-            user.shifted_time_zone = user.time_zone
-            DataFuncs.update_add_user(user=user)
+        for group in self.groups:
+            for user in self.groups[group].users:
+                user.shifted_time_zone = user.time_zone
             DataFuncs.senders_data_clear()
             self.logger.full_log(action='Reset')
         pass
@@ -188,18 +217,18 @@ class Secretary:
             self.bot.send_text(text='Рассылка успешно включена', chat_id=user.chat_id)
             new_buttons[0].append(self.buttons['callback_off'].form_dict())
         self.bot.edit_text(inline_keyboard_markup=new_buttons, msg_id=event.data['message']['msgId'], chat_id=event.from_chat, text='Что хочешь сделать?')
+    
+    
     def get_user_by_id(self, chat_id):
-        for user in self.users:
-            if user.chat_id == chat_id:
+        for group in self.groups:
+            user = self.groups[group].get_user(chat_id)
+            if (user is not None):
                 return user
         return None
         
     def send_report(self):
-        SAA_senders = []
-        RPI_senders = []
-        for user in self.users:
-            pass
-        pass
+        for group in self.groups:
+            self.groups[group].send_report(bot=self.bot)
 
     def start_schedule(self):
         self.logger.full_log(action='start_schedule')
@@ -218,11 +247,6 @@ class Secretary:
         self.bot.idle()
         pass
 
-    def create_test_users(self):
-        self.users.extend([
-            User(name='Адыев1', chat_id='@1'),
-            User(name='Адыев2', chat_id='@1')
-        ])
-        pass
+  
 
     

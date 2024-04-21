@@ -11,7 +11,7 @@ class User:
                  time_zone = 4, 
                  city = "Новосибирск", 
                  birth_date: date = None,
-                 groop:str = 'RPI') -> None:
+                 group:str = 'RPI') -> None:
         self.name = name
         self.chat_id = chat_id
         self.silenсed = silenсed
@@ -19,7 +19,7 @@ class User:
         self.shifted_time_zone = time_zone
         self.city = city
         self.birth_date = birth_date
-        self.groop = groop
+        self.group = group
 
     #переопределение для вывода в виде словаря    
     def __str__(self) -> str:
@@ -30,12 +30,12 @@ class User:
                     'shifted_time_zone': self.shifted_time_zone, 
                     'city': self.city,
                     'birth_date': str(self.birth_date),
-                    'groop': self.groop
+                    'groop': self.group
                     })
 
     #переопределение для вывода в виде объекта    
     def __repr__(self) -> str:
-        return f'User({self.name}, {self.chat_id}, {self.silenсed}, {self.time_zone}, {self.shifted_time_zone}, {self.city}, {str(self.birth_date)}, {self.groop})'
+        return f'User({self.name}, {self.chat_id}, {self.silenсed}, {self.time_zone}, {self.shifted_time_zone}, {self.city}, {str(self.birth_date)}, {self.group})'
     
     #переопределение равенства 
     def __eq__(self, other: object) -> bool:
@@ -46,4 +46,6 @@ class User:
     #переопределение неравенства     
     def __ne__(self, other: object) -> bool:
         return self.chat_id != other.chat_id
+    
+    
         
